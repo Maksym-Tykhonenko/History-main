@@ -15,7 +15,7 @@ const SpeakerControl = () => {
   const playbackState = usePlaybackState();
   const isPlaying = playbackState === State.Playing;
 
-  console.log(offState);
+  //console.log(offState);
 
   const handleToggleSound = async () => {
     await toggleBackgroundMusic();
@@ -24,9 +24,7 @@ const SpeakerControl = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={handleToggleSound}
-        >
+      <TouchableOpacity onPress={handleToggleSound}>
         {offState ? <OffIcon /> : <OnIcon />}
       </TouchableOpacity>
     </View>

@@ -16,7 +16,7 @@ const HistoryIntroductionScreen = ({navigation}) => {
         await playBackgroundMusic();
         setIsPlayerReady(true);
       } catch (error) {
-        console.error('Error initializing player:', error);
+        //console.error('Error initializing player:', error);
         setIsPlayerReady(true); // Set to true even if there's an error, so the app can render
       }
     };

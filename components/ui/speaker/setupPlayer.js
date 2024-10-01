@@ -24,7 +24,7 @@ export const setupPlayer = async () => {
       }
 
       if (setupResult !== State.None) {
-        console.log('Player already set up, skipping initialization');
+        //console.log('Player already set up, skipping initialization');
         isPlayerInitialized = true;
         resolve();
         return;
@@ -33,8 +33,10 @@ export const setupPlayer = async () => {
       try {
         await TrackPlayer.setupPlayer();
       } catch (setupError) {
-        if (setupError.message.includes('The player has already been initialized')) {
-          console.log('Player was already initialized, continuing...');
+        if (
+          setupError.message.includes('The player has already been initialized')
+        ) {
+          //console.log('Player was already initialized, continuing...');
           isPlayerInitialized = true;
           resolve();
           return;
@@ -56,7 +58,7 @@ export const setupPlayer = async () => {
       });
 
       isPlayerInitialized = true;
-      console.log('Track player set up successfully');
+      //console.log('Track player set up successfully');
       resolve();
     } catch (error) {
       console.error('Error setting up player:', error);
@@ -108,7 +110,7 @@ export const resetPlayer = async () => {
     await TrackPlayer.stop();
     await TrackPlayer.reset();
     isPlayerInitialized = false;
-    console.log('Track player reset successfully');
+    //console.log('Track player reset successfully');
   } catch (error) {
     console.error('Error resetting player:', error);
     isPlayerInitialized = false;
